@@ -1,0 +1,65 @@
+# Springboard-Projects
+import numpy as np
+import pandas as pd
+
+pets = pd.DataFrame({'sex': np.array(['M', 'M', 'F', 'M', 'F', 'F', 'F', 'M', 'F', 'M']),
+                   'age': np.array([21, 45, 23, 56, 47, 70, 34, 30, 19, 62]),
+                   'pets': np.array([['cat', 'dog'],
+                                    ['hamster'],
+                                    ['cat', 'gerbil'],
+                                    ['fish', 'hamster', 'gerbil'],
+                                    ['cat'],
+                                    ['dog'],
+                                    ['dog'],
+                                    ['cat'],
+                                    ['rabbit', 'cat'],
+                                    ['dog']])})
+pets
+
+	sex 	age 	pets
+0 	M 	21 	[cat, dog]
+1 	M 	45 	[hamster]
+2 	F 	23 	[cat, gerbil]
+3 	M 	56 	[fish, hamster, gerbil]
+4 	F 	47 	[cat]
+5 	F 	70 	[dog]
+6 	F 	34 	[dog]
+7 	M 	30 	[cat]
+8 	F 	19 	[rabbit, cat]
+9 	M 	62 	[dog]
+
+
+
+# one line of code
+pets.loc[pets['age'] == min(pets['age']), 'sex']
+
+8    F
+Name: sex, dtype: object
+
+
+# task: create new column 'num_pets' which contains the number of pets
+# each person had (hint: this is the length of each list in the pets column)
+# one line of code here:
+pets['num_pets'] = pets['pets'].apply(lambda x: len(x))
+
+# view the DataFrame again to check our new column is there
+pets
+
+	sex 	age 	pets 	num_pets
+0 	M 	21 	[cat, dog] 	2
+1 	M 	45 	[hamster] 	1
+2 	F 	23 	[cat, gerbil] 	2
+3 	M 	56 	[fish, hamster, gerbil] 	3
+4 	F 	47 	[cat] 	1
+5 	F 	70 	[dog] 	1
+6 	F 	34 	[dog] 	1
+7 	M 	30 	[cat] 	1
+8 	F 	19 	[rabbit, cat] 	2
+9 	M 	62 	[dog] 	1
+
+pets.loc[pets['num_pets'] == max(pets['num_pets']), 'age']
+
+3    56
+Name: age, dtype: int64
+
+
