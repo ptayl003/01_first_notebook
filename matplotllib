@@ -1,0 +1,39 @@
+# Springboard-Projects
+m = 5
+c = -1
+x = [0, 1, 2, 3, 4, 5, 6]
+
+[0, 1, 2, 3, 4, 5, 6]
+
+# task: use a list comprehension to create the output y values
+# note how we can't simply write y = m*x + c
+# one line of code here:
+y = [m*x_i + c for x_i in x]
+
+[-1, 4, 9, 14, 19, 24, 29]
+
+print(y)
+
+[-1, 4, 9, 14, 19, 24, 29]
+
+# task: import numpy
+# one line of code here:
+import numpy as np
+
+X = np.array(x)
+Y = m*X + c
+
+print(y)
+
+[-1, 4, 9, 14, 19, 24, 29]
+
+import matplotlib.pyplot as plt
+
+# task: create a scatter plot of X and Y
+# Hint: either refer to matplotlib documentation or, after importing pyplot, use Jupyter's autocompletion
+# suggestions to find the relevant scatter plot function
+# one line of code here:
+plt.scatter(X, Y)
+
+<matplotlib.collections.PathCollection at 0x113c42d90>
+
